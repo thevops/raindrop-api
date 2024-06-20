@@ -7,7 +7,7 @@
     "docs": "tsdoc --src=src/* --dest=README.md",
     "build": "tsc",
     "clean": "rm -rf ./dist/*",
-    "test": "ts-node src/example/example.ts",
+    "example": "ts-node src/example/example.ts",
     "format": "prettier --write src/**/*"
   },
   "keywords": [

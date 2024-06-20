@@ -8,7 +8,7 @@ Raindrop API docs: https://developer.raindrop.io/
 
 Run:
 ```
-RAINDROP_TOKEN=<my-token> RAINDROP_COLLECTION_ID=<number> npm run test
+RAINDROP_TOKEN=<my-token> RAINDROP_COLLECTION_ID=<number> npm run example
 ```
 
 <!-- TSDOC_START -->
