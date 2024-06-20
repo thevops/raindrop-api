@@ -6,6 +6,11 @@ Raindrop API docs: https://developer.raindrop.io/
 
 [Example code](./src/example/example.ts)
 
+Run:
+```
+RAINDROP_TOKEN=<my-token> RAINDROP_COLLECTION_ID=<number> npm run test
+```
+
 <!-- TSDOC_START -->
 
 ## :factory: Raindrop
