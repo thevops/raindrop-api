@@ -1,0 +1,12 @@
+---
+repos:
+  - repo: local
+    hooks:
+      - id: format
+        name: "Format code with prettier"
+        entry: /usr/bin/env bash -c "npm run format"
+        language: script
+      - id: documentation
+        name: "Generate documentation"
+        entry: /usr/bin/env bash -c "npm run docs"
+        language: script

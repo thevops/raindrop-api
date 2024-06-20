@@ -1,0 +1,27 @@
+{
+  "name": "raindrop-api",
+  "version": "1.0.0",
+  "description": "Expose selected Raindrop.io API endpoints",
+  "main": "src/index.js",
+  "scripts": {
+    "docs": "tsdoc --src=src/* --dest=README.md",
+    "build": "tsc",
+    "clean": "rm -rf ./dist/*",
+    "test": "ts-node src/example/example.ts",
+    "format": "prettier --write src/**/*"
+  },
+  "keywords": [
+    "raindrop",
+    "raindrop.io"
+  ],
+  "author": "Krzysztof Łuczak",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.6",
+    "eslint": "^9.5.0",
+    "prettier": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "tsdoc-markdown": "^0.6.0",
+    "typescript": "^5.4.5"
+  }
+}
