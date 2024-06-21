@@ -12,7 +12,7 @@ if (!raindroip_token || !raindrop_collection_id) {
 const raindrop = new Raindrop(raindroip_token);
 
 raindrop
-  .addItem_link(raindrop_collection_id, "https://www.google.com")
+  .addItem(raindrop_collection_id, "https://www.google.com", "This is a note.")
   .then((result) => {
     console.log("addItem_link:", result);
 

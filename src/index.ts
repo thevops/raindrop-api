@@ -32,11 +32,13 @@ export class Raindrop {
    * Add a new link to a collection.
    * @param collectionId - The id of the collection.
    * @param link - The link to add.
+   * @param note - (optional) A note to add to the link.
    * @returns Promise<boolean> - True if the link was added successfully, false otherwise.
    */
-  public async addItem_link(
+  public async addItem(
     collectionId: string,
     link: string,
+    note: string = "",
   ): Promise<boolean> {
     try {
       const response = await fetch(`${this.raindrop_url}/raindrop`, {
@@ -50,6 +52,7 @@ export class Raindrop {
           collection: {
             $id: collectionId,
           },
+          note: note,
         }),
       });
       if (response.status == 200) {

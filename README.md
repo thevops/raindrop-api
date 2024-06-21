@@ -17,22 +17,23 @@ RAINDROP_TOKEN=<my-token> RAINDROP_COLLECTION_ID=<number> npm run example
 
 ### Methods
 
-- [addItem_link](#gear-additem_link)
+- [addItem](#gear-additem)
 - [removeItem](#gear-removeitem)
 - [getFirstItemFromCollection](#gear-getfirstitemfromcollection)
 
-#### :gear: addItem_link
+#### :gear: addItem
 
 Add a new link to a collection.
 
 | Method | Type |
 | ---------- | ---------- |
-| `addItem_link` | `(collectionId: string, link: string) => Promise<boolean>` |
+| `addItem` | `(collectionId: string, link: string, note?: string) => Promise<boolean>` |
 
 Parameters:
 
 * `collectionId`: - The id of the collection.
 * `link`: - The link to add.
+* `note`: - (optional) A note to add to the link.
 
 
 #### :gear: removeItem
