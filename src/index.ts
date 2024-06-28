@@ -1,23 +1,22 @@
 export interface RaindropItem {
-  _id: number;
-  link: string;
-  excerpt: string;
-  note: string;
-  type: string;
-  user: { $ref: string; $id: number };
-  cover: string;
-  tags: string[];
-  removed: boolean;
-  collection: { $ref: string; $id: number; oid: number };
-  media: string[];
-  created: string;
-  lastUpdate: string;
-  domain: string;
-  title: string;
-  creatorRef: { _id: number; name: string; avatar: string; email: string };
-  sort: number;
-  highlights: string[];
-  collectionId: number;
+  link: string; // required
+  _id?: number;
+  excerpt?: string;
+  note?: string;
+  type?: string;
+  user?: { $ref: string; $id: number };
+  cover?: string;
+  tags?: string[];
+  removed?: boolean;
+  collection?: { $id: number };
+  media?: string[];
+  domain?: string;
+  created?: string;
+  lastUpdate?: string;
+  title?: string;
+  creatorRef?: { _id: number; name: string; avatar: string; email: string };
+  sort?: number;
+  highlights?: string[];
 }
 
 export class Raindrop {
@@ -30,16 +29,10 @@ export class Raindrop {
 
   /**
    * Add a new link to a collection.
-   * @param collectionId - The id of the collection.
-   * @param link - The link to add.
-   * @param note - (optional) A note to add to the link.
-   * @returns Promise<boolean> - True if the link was added successfully, false otherwise.
+   * @param item - The RaindropItem to add.
+   * @return Promise<boolean> - True if the item was added successfully, false otherwise.
    */
-  public async addItem(
-    collectionId: string,
-    link: string,
-    note: string = "",
-  ): Promise<boolean> {
+  public async addItem(item: RaindropItem): Promise<boolean> {
     try {
       const response = await fetch(`${this.raindrop_url}/raindrop`, {
         method: "POST",
@@ -47,13 +40,7 @@ export class Raindrop {
           "Content-Type": "application/json",
           Authorization: `Bearer ${this.raindroip_token}`,
         },
-        body: JSON.stringify({
-          link: link,
-          collection: {
-            $id: collectionId,
-          },
-          note: note,
-        }),
+        body: JSON.stringify(item),
       });
       if (response.status == 200) {
         await response.json();
@@ -93,11 +80,11 @@ export class Raindrop {
   /**
    * Get the first item from a collection.
    * @param collectionId - The id of the collection.
-   * @returns object, msg, status - The first item in the collection, a message (string), and a status (boolean).
+   * @return Promise<{ object: RaindropItem; msg: string; status: boolean }> - The first item in the collection, along with a message and status.
    */
 
   public async getFirstItemFromCollection(
-    collectionId: string,
+    collectionId: string
   ): Promise<{ object: RaindropItem; msg: string; status: boolean }> {
     try {
       const response = await fetch(
@@ -106,7 +93,7 @@ export class Raindrop {
           headers: {
             Authorization: `Bearer ${this.raindroip_token}`,
           },
-        },
+        }
       );
       if (response.status !== 200) {
         return {

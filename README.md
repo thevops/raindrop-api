@@ -27,13 +27,11 @@ Add a new link to a collection.
 
 | Method | Type |
 | ---------- | ---------- |
-| `addItem` | `(collectionId: string, link: string, note?: string) => Promise<boolean>` |
+| `addItem` | `(item: RaindropItem) => Promise<boolean>` |
 
 Parameters:
 
-* `collectionId`: - The id of the collection.
-* `link`: - The link to add.
-* `note`: - (optional) A note to add to the link.
+* `item`: - The RaindropItem to add.
 
 
 #### :gear: removeItem
